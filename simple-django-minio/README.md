@@ -24,10 +24,10 @@ fandogh volume add -n VOLUME_NAME -c 10
 ### Local Test
 
 * run below commands first (in root):
-```bash
+```py
 pip install -r requirements.txt
 ```
-```bash
+```py
 python manage.py migrate
 ```
 * Run project
@@ -38,11 +38,11 @@ python manage.py runserver
 ### Fandogh Test
 
 * Initialize a Django Project
-```bash
+```py
 fandogh source init --name django
 ```
     
 * Deploy generated manifest
-```
+```sh
 fandogh source run
 ```
