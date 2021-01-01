@@ -35,7 +35,7 @@ python manage.py migrate
 python manage.py runserver
 ```
     
-## Fandogh Test
+### Fandogh Test
 
 * Initialize a Django Project
 ```bash
