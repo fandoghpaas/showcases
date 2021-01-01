@@ -1,2 +1,2 @@
-django-minio-backend==2.5.1
+django-minio-storage==0.3.10
 Django~=3.1.4

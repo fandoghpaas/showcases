@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ba&xzkyla6j4&(&nnx^l4ekjbhioc5bxd+q_-4v9v0rtg8hb2c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '*']
 
@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_minio_backend.apps.DjangoMinioBackendConfig',
-    'image'
+    'minio_storage',
+    'file'
 ]
 
 MIDDLEWARE = [
@@ -108,6 +108,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
+
 USE_L10N = True
 
 USE_TZ = True
@@ -116,14 +117,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # minio configs
-MINIO_ENDPOINT = os.environ.get('MINIO_ENDPOINT', 'minio')
-MINIO_ACCESS_KEY = os.environ.get('MINIO_ACCESS_KEY', None)
-MINIO_SECRET_KEY = os.environ.get('MINIO_SECRET_KEY', None)
-MINIO_USE_HTTPS = True
-MINIO_URL_EXPIRY_HOURS = timedelta(days=1)  # Default is 7 days (longest) if not defined
-MINIO_CONSISTENCY_CHECK_ON_START = False # set it to False in development mode
-MINIO_PRIVATE_BUCKETS = ['private']
-MINIO_PUBLIC_BUCKETS = ['images', ]  # just a public bucket named images
-MINIO_POLICY_HOOKS: List[Tuple[str, dict]] = []
+DEFAULT_FILE_STORAGE = "minio_storage.storage.MinioMediaStorage"
+STATICFILES_STORAGE = "minio_storage.storage.MinioStaticStorage"
+MINIO_STORAGE_ENDPOINT = os.environ.get('MINIO_STORAGE_ENDPOINT', None)
+MINIO_STORAGE_ACCESS_KEY = os.environ.get('MINIO_STORAGE_ACCESS_KEY', None)
+MINIO_STORAGE_SECRET_KEY = os.environ.get('MINIO_SECRET_KEY', None)
+MINIO_STORAGE_USE_HTTPS = True
+MINIO_STORAGE_MEDIA_BUCKET_NAME = 'media'
+MINIO_STORAGE_STATIC_BUCKET_NAME = 'static'
+MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET = True
+MINIO_STORAGE_AUTO_CREATE_STATIC_BUCKET = True
