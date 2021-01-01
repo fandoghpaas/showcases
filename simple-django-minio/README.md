@@ -7,7 +7,7 @@ This is a simple django project showing how to use MinIO S3 Object Storage budle
 
 ### Deploy MinIO in Fandogh PaaS
 
-```bash title="MinIO Managed Service"
+```py title="MinIO Managed Service"
 fandogh managed-service deploy minio latest \
        -c service_name=minio \
        -c minio_access_key=12charchters \
@@ -17,7 +17,7 @@ fandogh managed-service deploy minio latest \
 ```
 **⚠ WARNING:** you should create a volume before deploying MinIO with command below:
 
-```bash
+```py
 fandogh volume add -n VOLUME_NAME -c 10
 ```
 
@@ -43,6 +43,6 @@ fandogh source init --name django
 ```
     
 * Deploy generated manifest
-```sh
+```py
 fandogh source run
 ```
