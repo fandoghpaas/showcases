@@ -7,4 +7,4 @@ You can clone them and practice either local or on cloud.
 
 |Subject |Description |Link |
 |--- |--- |--- |
-|Django Projects + MinIO | How to user MinIO object storage in real django projects | [link](https://github.com/fandoghpaas/showcases/tree/main/simple-django-minio)
+|Django Projects + MinIO | How to use MinIO object storage in real django projects | [link](https://github.com/fandoghpaas/showcases/tree/main/simple-django-minio)
