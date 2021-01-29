@@ -1,0 +1,10 @@
+kind: ManagedService
+name: mysql
+spec:
+  service_name: mysql
+  version: latest
+  parameters:
+    - name: phpmyadmin_enabled
+      value: 'true'
+  resources:
+      memory: 512Mi
