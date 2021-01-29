@@ -1,0 +1,18 @@
+kind: ExternalService
+name: django
+spec:
+  image_pull_policy: Always
+  port: 80
+  source:
+    context: .
+    media_path: ''
+    project_type: django
+    python_version: '3.7'
+    static_path: static
+    wsgi: simple_django_redis.wsgi
+  env:
+  - name: MYSQL_PASSWORD
+    value: root
+  - name: MYSQL_HOST
+    value: mysql
+
