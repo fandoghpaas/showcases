@@ -13,7 +13,7 @@ In order to setup this project we need below services:
 
 ### Deploy MySQL in Fandogh PaaS using below manifest
 
-```bash
+```sh
 fandogh service apply -f mysql_deployment.yml
 ```
 
